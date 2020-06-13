@@ -1,3 +1,5 @@
+# Copyright 2020 CJ Harries
+# Licensed under http://www.apache.org/licenses/LICENSE-2.0
 ---
 - name: install repositories
   apt_repository:
@@ -5,7 +7,7 @@
     state: "{{ item.repo_state | default(default_repo_state) }}"
     update_cache: "{{ item.force_update | default(default_force_update) }}"
   loop: "{{ packages_to_install }}"
-  when: item.repo != ""
+  when: item.repo|default("") != ""
   become: yes
   tags:
     - install
