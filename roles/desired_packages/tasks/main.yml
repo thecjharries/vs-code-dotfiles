@@ -20,7 +20,7 @@
 - name: install packages
   apt:
     name: "{{ item.name }}"
-    state: "{{ item.state | default(default_package_state) }}"
+    state: "{{ item.package_state | default(default_package_state) }}"
     install_recommends: "{{ item.install_recommends | default(default_install_recommends) }}"
     update_cache: "{{ item.force_update | default(default_force_update) }}"
   become: yes
