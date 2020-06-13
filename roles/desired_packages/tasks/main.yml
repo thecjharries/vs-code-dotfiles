@@ -1,0 +1,32 @@
+# Copyright 2020 CJ Harries
+# Licensed under http://www.apache.org/licenses/LICENSE-2.0
+---
+- name: install repositories
+  apt_repository:
+    repo: "{{ item.repo }}"
+    state: "{{ item.repo_state | default(default_repo_state) }}"
+    update_cache: "{{ item.force_update | default(default_force_update) }}"
+  loop: "{{ packages_to_install }}"
+  when: item.repo|default("") != ""
+  become: yes
+  tags:
+    - install
+    - repo
+
+- name: update apt cache
+  apt:
+    update_cache: yes
+    cache_valid_time: 3600
+  become: yes
+
+- name: install packages
+  apt:
+    name: "{{ item.name }}"
+    state: "{{ item.package_state | default(default_package_state) }}"
+    install_recommends: "{{ item.install_recommends | default(default_install_recommends) }}"
+    update_cache: "{{ item.force_update | default(default_force_update) }}"
+  become: yes
+  loop: "{{ packages_to_install }}"
+  tags:
+    - install
+    - package
