@@ -16,3 +16,11 @@ Current Ubuntu 20.04 installation instructions are presented below. The docs men
 sudo apt update
 sudo apt install ansible
 ```
+
+## VS Code
+
+```shell
+sudo snap install --classic code
+```
+
+I could install with Ansible but that's a one-liner.
