@@ -1,0 +1,2 @@
+---
+default_vs_code_extensions_dir: "{{ '~/.vscode/extensions' | expanduser }}"
