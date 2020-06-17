@@ -1,0 +1,9 @@
+# Copyright 2020 CJ Harries
+# Licensed under http://www.apache.org/licenses/LICENSE-2.0
+---
+dependencies:
+  - role: vs_code_desired_extensions
+    vars:
+      vs_code_extensions_to_install:
+        - shd101wyy.markdown-preview-enhanced
+        - yzhang.markdown-all-in-one
