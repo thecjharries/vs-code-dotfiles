@@ -1,2 +1,4 @@
+# Copyright 2020 CJ Harries
+# Licensed under http://www.apache.org/licenses/LICENSE-2.0
 ---
 default_vs_code_extensions_dir: "{{ '~/.vscode/extensions' | expanduser }}"
