@@ -25,7 +25,7 @@
 - name: ensure code not running
   fail:
     msg: code must not be running in order to work with extensions
-  when: "{{ code_status.stdout is not search('Warning: The --status argument') }}"
+  when: "code_status.stdout is not search('Warning: The --status argument')"
 
 - name: define extensions
   set_fact:
