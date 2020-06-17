@@ -19,6 +19,18 @@ sudo apt install ansible
 
 ## VS Code
 
+### Direct
+
+```shell
+curl -fL https://update.code.visualstudio.com/latest/linux-deb-x64/stable -o code.deb
+sudo apt install -f ./code.deb
+rm -rf code.deb
+```
+
+### Potentially Broken
+
+Snap install can have issues on newer versions of Ubuntu; direct is preferred on `20.04+` (for now).
+
 ```shell
 sudo snap install --classic code
 ```
