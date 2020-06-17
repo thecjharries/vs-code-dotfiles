@@ -1,5 +1,7 @@
 # Copyright 2020 CJ Harries
 # Licensed under http://www.apache.org/licenses/LICENSE-2.0
+
+# Configures tooling related to EditorConfig
 ---
 - hosts: localhost
 
