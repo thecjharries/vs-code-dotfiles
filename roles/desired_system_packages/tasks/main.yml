@@ -6,7 +6,7 @@
     repo: "{{ item.repo }}"
     state: "{{ item.repo_state | default(default_repo_state) }}"
     update_cache: "{{ item.force_update | default(default_force_update) }}"
-  loop: "{{ packages_to_install }}"
+  loop: "{{ system_packages_to_install }}"
   when: item.repo|default("") != ""
   become: yes
   tags:
@@ -26,7 +26,7 @@
     install_recommends: "{{ item.install_recommends | default(default_install_recommends) }}"
     update_cache: "{{ item.force_update | default(default_force_update) }}"
   become: yes
-  loop: "{{ packages_to_install }}"
+  loop: "{{ system_packages_to_install }}"
   tags:
     - install
     - package

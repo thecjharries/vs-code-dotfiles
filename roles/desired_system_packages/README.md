@@ -1,4 +1,4 @@
-# `desired_packages`
+# `desired_system_packages`
 
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)  [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/) [![Check the NOTICE](https://img.shields.io/badge/Check%20the-NOTICE-420C3B.svg)](../../NOTICE)
 
@@ -6,7 +6,7 @@ THis currently only works with operating systems that use `aptitude`.
 
 ## Input
 
-`desired_packages` expects a list of hashes named `packages_to_install` to be passed in.
+`desired_packages` expects a list of hashes named `system_packages_to_install` to be passed in.
 
 | key | default | docs |
 |---|---|---|
@@ -34,7 +34,7 @@ For each element, if `force_update` is truthy, update the cache. Install package
 - hosts: localhost
 
   vars:
-    packages_to_install:
+    system_packages_to_install:
       - name: git
         package_state: present
       - name: keepass2
@@ -43,5 +43,5 @@ For each element, if `force_update` is truthy, update the cache. Install package
         repo: ppa:dlech/keepass2-plugins
 
   roles:
-    - role: desired_packages
+    - role: desired_system_packages
 ```

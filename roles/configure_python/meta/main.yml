@@ -2,9 +2,9 @@
 # Licensed under http://www.apache.org/licenses/LICENSE-2.0
 ---
 dependencies:
-  - role: desired_packages
+  - role: desired_system_packages
     vars:
-      packages_to_install:
+      system_packages_to_install:
         - name: python3
         - name: python3-pip
   - role: desired_vs_code_extensions
