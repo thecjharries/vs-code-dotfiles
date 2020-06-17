@@ -2,7 +2,7 @@
 # Licensed under http://www.apache.org/licenses/LICENSE-2.0
 ---
 dependencies:
-  - role: desire_packages
+  - role: desired_packages
     vars:
       packages_to_install:
         - name: python3
