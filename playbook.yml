@@ -1,0 +1,8 @@
+# Copyright 2020 CJ Harries
+# Licensed under http://www.apache.org/licenses/LICENSE-2.0
+---
+- hosts: localhost
+
+  roles:
+    - role: configure_editor_config
+    - role: configure_latex
