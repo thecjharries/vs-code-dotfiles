@@ -36,3 +36,10 @@ sudo snap install --classic code
 ```
 
 I could install with Ansible but that's a one-liner.
+
+
+## Usage
+
+```shell
+ansible-playbook --ask-become-pass playbook.yml
+```
