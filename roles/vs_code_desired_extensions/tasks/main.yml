@@ -1,0 +1,46 @@
+# Copyright 2020 CJ Harries
+# Licensed under http://www.apache.org/licenses/LICENSE-2.0
+---
+- name: define extensions_dir
+  set_fact:
+    extensions_dir: "{{ vs_code_extensions_dir | default(default_vs_code_extensions_dir) | quote }}"
+
+- name: stat .obsolete
+  stat:
+    path: "{{ extensions_dir }}/.obsolete"
+  register: obsolete_file
+
+- name: ensure .obsolete does not exist
+  fail:
+    msg: You must open Code to resolve extensions in the .obsolete file, then reclose code
+  when: obsolete_file.stat.exists
+
+- name: get code status
+  command:
+    argv:
+      - code
+      - --status
+  register: code_status
+
+- name: ensure code not running
+  fail:
+    msg: code must not be running in order to work with extensions
+  when: "{{ code_status.stdout is not search('Warning: The --status argument') }}"
+
+- name: define extensions
+  set_fact:
+    extension: "{{ item | lower | quote }}"
+  loop: "{{ vs_code_extensions_to_install }}"
+  register: extensions
+
+- name: install extensions
+  command:
+    argv:
+      - code
+      - --extensions-dir
+      - "{{ extensions_dir }}"
+      - --install-extension
+      - "{{ item }}"
+    creates: "{{ extensions_dir }}/{{ item }}*"
+  loop: "{{ extensions.results | json_query('[].ansible_facts.extension') }}"
+  register: cmds
