@@ -5,4 +5,6 @@
 
   roles:
     - role: configure_editor_config
+    - role: configure_markdown
     - role: configure_latex
+    - role: configure_python

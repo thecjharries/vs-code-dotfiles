@@ -1,0 +1,13 @@
+# Copyright 2020 CJ Harries
+# Licensed under http://www.apache.org/licenses/LICENSE-2.0
+---
+dependencies:
+  - role: desire_packages
+    vars:
+      packages_to_install:
+        - name: python3
+        - name: python3-pip
+  - role: vs_code_desired_extensions
+    vars:
+      vs_code_extensions_to_install:
+        - ms-python.python
