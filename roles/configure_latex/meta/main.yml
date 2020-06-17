@@ -1,0 +1,16 @@
+# Copyright 2020 CJ Harries
+# Licensed under http://www.apache.org/licenses/LICENSE-2.0
+---
+dependencies:
+  - role: desired_system_packages
+    vars:
+      system_packages_to_install:
+        - name: texlive
+        - name: texlive-extra-utils
+        - name: latexmk
+        - name: pdf2svg
+        - name: chktex
+  - role: desired_vs_code_extensions
+    vars:
+      vs_code_extensions_to_install:
+        - "James-Yu.latex-workshop"

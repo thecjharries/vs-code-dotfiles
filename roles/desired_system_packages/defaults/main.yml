@@ -1,0 +1,7 @@
+# Copyright 2020 CJ Harries
+# Licensed under http://www.apache.org/licenses/LICENSE-2.0
+---
+default_package_state: latest
+default_install_recommends: yes
+default_repo_state: present
+default_force_update: no
