@@ -10,7 +10,7 @@ dependencies:
         - name: latexmk
         - name: pdf2svg
         - name: chktex
-  - role: vs_code_desired_extensions
+  - role: desired_vs_code_extensions
     vars:
       vs_code_extensions_to_install:
         - "James-Yu.latex-workshop"
